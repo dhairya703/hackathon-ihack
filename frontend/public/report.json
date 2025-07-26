@@ -1,0 +1,60 @@
+{
+  "os": [
+    "Windows"
+  ],
+  "services": [
+    {
+      "port": "135",
+      "protocol": "tcp",
+      "name": "msrpc",
+      "product": "Microsoft Windows RPC",
+      "version": null,
+      "extrainfo": null,
+      "ostype": "Windows",
+      "cpe": "cpe:/o:microsoft:windows"
+    },
+    {
+      "port": "139",
+      "protocol": "tcp",
+      "name": "netbios-ssn",
+      "product": "Microsoft Windows netbios-ssn",
+      "version": null,
+      "extrainfo": null,
+      "ostype": "Windows",
+      "cpe": "cpe:/o:microsoft:windows"
+    },
+    {
+      "port": "445",
+      "protocol": "tcp",
+      "name": "microsoft-ds",
+      "product": null,
+      "version": null,
+      "extrainfo": null,
+      "ostype": null,
+      "cpe": null
+    },
+    {
+      "port": "8080",
+      "protocol": "tcp",
+      "name": "http",
+      "product": "Apache httpd",
+      "version": "2.4.7",
+      "extrainfo": "(Ubuntu)",
+      "ostype": null,
+      "cpe": "cpe:/a:apache:http_server:2.4.7"
+    },
+    {
+      "port": "8093",
+      "protocol": "tcp",
+      "name": "http",
+      "product": "Apache httpd",
+      "version": "2.4.7",
+      "extrainfo": "(Ubuntu)",
+      "ostype": null,
+      "cpe": "cpe:/a:apache:http_server:2.4.7"
+    }
+  ],
+  "user_agents": [
+    "Apache/2.4.7 (Ubuntu)"
+  ]
+}

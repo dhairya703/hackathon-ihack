@@ -1,0 +1,502 @@
+[
+  {
+    "type": "exploit",
+    "id": "95499236-C9FE-56A6-9D7D-E943A24B633A",
+    "is_exploit": true,
+    "exploit_type": "githubexploit",
+    "cvss": 10.0,
+    "severity": "CRITICAL",
+    "description": "This GitHub exploit allows for remote code execution (RCE) due to insecure deserialization or similar critical flaw.",
+    "remediation": "Without knowing the specifics of exploit `95499236-C9FE-56A6-9D7D-E943A24B633A`, I can't give a precise single-line fix. However, a common vulnerability that leads to critical exploits is command injection.\n\nAssuming the exploit is a command injection vulnerability where user input `userInput` is passed to a system command unsanitized, a possible fix would be:\n\n```python\nimport shlex\nsubprocess.Popen(shlex.quote(userInput), shell=True) # before fix.\n\nsubprocess.Popen(shlex.split(userInput)) # single line fix\n```\n\nThis utilizes `shlex.split()` to safely split the user input into a list of arguments, preventing command injection by treating the input as arguments instead of shell commands."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2024-47252",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "Insufficient escaping of user-supplied data in mod_ssl in Apache HTTP Server 2.4.63 and earlier allows an untrusted SSL/TLS client to insert escape characters into log files in some configurations.\n\nIn a logging configuration where CustomLog is used with \"%{varname}x\" or \"%{varname}c\" to log variables provided by mod_ssl such as SSL_TLS_SNI, no escaping is performed by either mod_log_config or mod_ssl and unsanitized data provided by the client may appear in log files.",
+    "remediation": "Sanitize user-supplied data before logging in mod_ssl to prevent escape character injection; apply upstream patch addressing insufficient escaping in mod_log_config or mod_ssl."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2024-38476",
+    "is_exploit": true,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "Vulnerability in core of Apache HTTP Server 2.4.59 and earlier are vulnerably to information disclosure, SSRF or local script execution via\u00a0backend applications whose response headers are malicious or exploitable.\n\nUsers are recommended to upgrade to version 2.4.60, which fixes this issue.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.60 to fix the vulnerability."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2024-38474",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "Substitution encoding issue in mod_rewrite in Apache HTTP Server 2.4.59 and earlier allows attacker to execute scripts in\ndirectories permitted by the configuration but not directly reachable by any\u00a0URL or source disclosure of scripts meant to only to be executed as CGI.\n\nUsers are recommended to upgrade to version 2.4.60, which fixes this issue.\n\nSome RewriteRules that capture and substitute unsafely will now fail unless rewrite flag \"UnsafeAllow3F\" is specified.",
+    "remediation": "Upgrade to Apache HTTP Server 2.4.60 or later and review RewriteRules, potentially adding the \"UnsafeAllow3F\" flag if needed, to mitigate substitution encoding issues."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2023-25690",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "Some mod_proxy configurations on Apache HTTP Server versions 2.4.0 through 2.4.55 allow a HTTP Request Smuggling attack.\n\n\n\n\nConfigurations are affected when mod_proxy is enabled along with some form of RewriteRule\n or ProxyPassMatch in which a non-specific pattern matches\n some portion of the user-supplied request-target (URL) data and is then\n re-inserted into the proxied request-target using variable \nsubstitution. For example, something like:\n\n\n\n\nRewriteEngine on\nRewriteRule \"^/here/(.*)\" \"http://example.com:8080/elsewhere?$1\"; [P]\nProxyPassReverse /here/ http://example.com:8080/\n\n\nRequest splitting/smuggling could result in bypass of access controls in the proxy server, proxying unintended URLs to existing origin servers, and cache poisoning. Users are recommended to update to at least version 2.4.56 of Apache HTTP Server.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.56 or later to patch the HTTP request smuggling vulnerability in mod_proxy configurations using RewriteRule or ProxyPassMatch with variable substitution."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2022-31813",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "Apache HTTP Server 2.4.53 and earlier may not send the X-Forwarded-* headers to the origin server based on client side Connection header hop-by-hop mechanism. This may be used to bypass IP based authentication on the origin server/application.",
+    "remediation": "Upgrade to Apache HTTP Server 2.4.54 or later to mitigate X-Forwarded-* header spoofing vulnerabilities; consult the Apache security advisory for specific configuration adjustments to enforce proper header handling."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2022-23943",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "Out-of-bounds Write vulnerability in mod_sed of Apache HTTP Server allows an attacker to overwrite heap memory with possibly attacker provided data. This issue affects Apache HTTP Server 2.4 version 2.4.52 and prior versions.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.53 or later to patch the out-of-bounds write vulnerability in mod_sed."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2022-22720",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "Apache HTTP Server 2.4.52 and earlier fails to close inbound connection when errors are encountered discarding the request body, exposing the server to HTTP Request Smuggling",
+    "remediation": "Upgrade to Apache HTTP Server 2.4.53 or later to properly close inbound connections after encountering errors discarding the request body, mitigating HTTP Request Smuggling."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-44790",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "A carefully crafted request body can cause a buffer overflow in the mod_lua multipart parser (r:parsebody() called from Lua scripts). The Apache httpd team is not aware of an exploit for the vulnerabilty though it might be possible to craft one. This issue affects Apache HTTP Server 2.4.51 and earlier.",
+    "remediation": "Update Apache HTTP Server to a version greater than 2.4.51 to include the fix for the mod_lua multipart parser buffer overflow vulnerability."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-42013",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "It was found that the fix for CVE-2021-41773 in Apache HTTP Server 2.4.50 was insufficient. An attacker could use a path traversal attack to map URLs to files outside the directories configured by Alias-like directives. If files outside of these directories are not protected by the usual default configuration \"require all denied\", these requests can succeed. If CGI scripts are also enabled for these aliased pathes, this could allow for remote code execution. This issue only affects Apache 2.4.49 and Apache 2.4.50 and not earlier versions.",
+    "remediation": "Upgrade to Apache HTTP Server 2.4.51 or later to fully address the path traversal vulnerability and ensure \"require all denied\" is configured for exposed directories."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-39275",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "ap_escape_quotes() may write beyond the end of a buffer when given malicious input. No included modules pass untrusted data to these functions, but third-party / external modules may. This issue affects Apache HTTP Server 2.4.48 and earlier.",
+    "remediation": "Remediate by upgrading to a patched version of Apache HTTP Server that includes buffer overflow protection in `ap_escape_quotes()`.\n\nPossible Patch (Illustrative):\n\n```c\n// Simplified example, actual patch will be more complex\nsize_t ap_escape_quotes(char *dest, const char *src, size_t dest_size) {\n  size_t i = 0;\n  size_t j = 0;\n  while (src[i] != '\\0' && j < dest_size - 1) { // Check buffer boundary\n    if (src[i] == '\"') {\n      if (j + 1 < dest_size - 1){ // Ensure space for two characters\n        dest[j++] = '\\\\';\n        dest[j++] = '\"';\n      } else {\n        //Handle error: Not enough space to escape the quote, possibly truncate or return an error code.\n        break;\n      }\n    } else {\n      dest[j++] = src[i];\n    }\n    i++;\n  }\n  dest[j] = '\\0';\n  return j;\n}\n```"
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-26691",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "In Apache HTTP Server versions 2.4.0 to 2.4.46 a specially crafted SessionHeader sent by an origin server could cause a heap overflow",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.47 or later to address the heap overflow vulnerability caused by a malicious SessionHeader."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2018-1312",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "In Apache httpd 2.2.0 to 2.4.29, when generating an HTTP Digest authentication challenge, the nonce sent to prevent reply attacks was not correctly generated using a pseudo-random seed. In a cluster of servers using a common Digest authentication configuration, HTTP requests could be replayed across servers by an attacker without detection.",
+    "remediation": "Upgrade to Apache httpd version 2.4.30 or later to incorporate the fix for the weak nonce generation in Digest authentication."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2017-7679",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 9.8,
+    "severity": "CRITICAL",
+    "description": "In Apache httpd 2.2.x before 2.2.33 and 2.4.x before 2.4.26, mod_mime can read one byte past the end of a buffer when sending a malicious Content-Type response header.",
+    "remediation": "Upgrade to Apache httpd 2.2.33 or 2.4.26 to fix the buffer overflow in mod_mime."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2022-29404",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "In Apache HTTP Server 2.4.53 and earlier, a malicious request to a lua script that calls r:parsebody(0) may cause a denial of service due to no default limit on possible input size.",
+    "remediation": "Remediation: Apply the patch that limits the input size for r:parsebody(0) calls in Lua scripts to prevent excessive resource consumption.\n\nPatch: (Example, may need adaptation) Implement a configurable limit for `r:parsebody(0)` within the mod_lua module in Apache, rejecting requests exceeding that limit."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2022-26377",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling') vulnerability in mod_proxy_ajp of Apache HTTP Server allows an attacker to smuggle requests to the AJP server it forwards requests to. This issue affects Apache HTTP Server Apache HTTP Server 2.4 version 2.4.53 and prior versions.",
+    "remediation": "Remediation: Upgrade to Apache HTTP Server version 2.4.54 or later to patch the HTTP Request Smuggling vulnerability in mod_proxy_ajp."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2022-22719",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "A carefully crafted request body can cause a read to a random memory area which could cause the process to crash. This issue affects Apache HTTP Server 2.4.52 and earlier.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.53 or later to patch the out-of-bounds read vulnerability."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-41524",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "While fuzzing the 2.4.49 httpd, a new null pointer dereference was detected during HTTP/2 request processing, allowing an external source to DoS the server. This requires a specially crafted request. The vulnerability was recently introduced in version 2.4.49. No exploit is known to the project.",
+    "remediation": "Remediate by patching to a version beyond 2.4.49 or applying a fix for the HTTP/2 request processing null pointer dereference."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-34798",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "Malformed requests may cause the server to dereference a NULL pointer. This issue affects Apache HTTP Server 2.4.48 and earlier.",
+    "remediation": "Upgrade to a patched version of Apache HTTP Server later than 2.4.48 to prevent null pointer dereference on malformed requests."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-33193",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "A crafted method sent through HTTP/2 will bypass validation and be forwarded by mod_proxy, which can lead to request splitting or cache poisoning. This issue affects Apache HTTP Server 2.4.17 to 2.4.48.",
+    "remediation": "Remediate by upgrading to Apache HTTP Server version 2.4.49 or later to address HTTP/2 crafted method validation bypass."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-31618",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "Apache HTTP Server protocol handler for the HTTP/2 protocol checks received request headers against the size limitations as configured for the server and used for the HTTP/1 protocol as well. On violation of these restrictions and HTTP response is sent to the client with a status code indicating why the request was rejected. This rejection response was not fully initialised in the HTTP/2 protocol handler if the offending header was the very first one received or appeared in a a footer. This led to a NULL pointer dereference on initialised memory, crashing reliably the child process. Since such a triggering HTTP/2 request is easy to craft and submit, this can be exploited to DoS the server. This issue affected mod_http2 1.15.17 and Apache HTTP Server version 2.4.47 only. Apache HTTP Server 2.4.47 was never released.",
+    "remediation": "Remediation: Upgrade to a version of Apache HTTP Server or mod_http2 later than 2.4.47 or 1.15.17 respectively, to address the NULL pointer dereference issue when handling oversized HTTP/2 headers."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2021-26690",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "Apache HTTP Server versions 2.4.0 to 2.4.46 A specially crafted Cookie header handled by mod_session can cause a NULL pointer dereference and crash, leading to a possible Denial Of Service",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.47 or later to address the mod_session NULL pointer dereference vulnerability."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2020-13950",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "Apache HTTP Server versions 2.4.41 to 2.4.46 mod_proxy_http can be made to crash (NULL pointer dereference) with specially crafted requests using both Content-Length and Transfer-Encoding headers, leading to a Denial of Service",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.47 or later, or apply the security patch addressing the Content-Length and Transfer-Encoding header handling in mod_proxy_http."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2019-0217",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "In Apache HTTP Server 2.4 release 2.4.38 and prior, a race condition in mod_auth_digest when running in a threaded server could allow a user with valid credentials to authenticate using another username, bypassing configured access control restrictions.",
+    "remediation": "Remediation: Upgrade to Apache HTTP Server version 2.4.39 or later to address the mod_auth_digest race condition.\n\nPatch (Conceptual): The patch would likely involve implementing proper locking mechanisms within the mod_auth_digest module to ensure thread-safe handling of authentication data and prevent race conditions during credential validation."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2019-0215",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "In Apache HTTP Server 2.4 releases 2.4.37 and 2.4.38, a bug in mod_ssl when using per-location client certificate verification with TLSv1.3 allowed a client to bypass configured access control restrictions.",
+    "remediation": "Upgrade to Apache HTTP Server 2.4.39 or later to fix the mod_ssl client certificate verification bypass bug."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2019-0190",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "A bug exists in the way mod_ssl handled client renegotiations. A remote attacker could send a carefully crafted request that would cause mod_ssl to enter a loop leading to a denial of service. This bug can be only triggered with Apache HTTP Server version 2.4.37 when using OpenSSL version 1.1.1 or later, due to an interaction in changes to handling of renegotiation attempts.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.38 or later; consult the Apache security advisory and OpenSSL documentation for specific patch details and mitigation options."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2018-8011",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "By specially crafting HTTP requests, the mod_md challenge handler would dereference a NULL pointer and cause the child process to segfault. This could be used to DoS the server. Fixed in Apache HTTP Server 2.4.34 (Affected 2.4.33).",
+    "remediation": "Remediate by upgrading to Apache HTTP Server 2.4.34 or later to prevent NULL pointer dereference during mod_md challenge handling."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2018-17199",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "In Apache HTTP Server 2.4 release 2.4.37 and prior, mod_session checks the session expiry time before decoding the session. This causes session expiry time to be ignored for mod_session_cookie sessions since the expiry time is loaded when the session is decoded.",
+    "remediation": "Remedy: Ensure session expiry time is checked *after* decoding the session.\n\nPatch (Conceptual): Modify mod_session to check session expiry *after* the session data is decoded, ensuring the loaded expiry time is used for evaluation."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2018-1333",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "By specially crafting HTTP/2 requests, workers would be allocated 60 seconds longer than necessary, leading to worker exhaustion and a denial of service. Fixed in Apache HTTP Server 2.4.34 (Affected 2.4.18-2.4.30,2.4.33).",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.34 or later to resolve the HTTP/2 request crafting vulnerability causing worker exhaustion."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2018-1303",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "description": "A specially crafted HTTP request header could have crashed the Apache HTTP Server prior to version 2.4.30 due to an out of bound read while preparing data to be cached in shared memory. It could be used as a Denial of Service attack against users of mod_cache_socache. The vulnerability is considered as low risk since mod_cache_socache is not widely used, mod_cache_disk is not concerned by this vulnerability.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.30 or later to address the out-of-bounds read vulnerability in mod_cache_socache."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2025-49812",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.4,
+    "severity": "HIGH",
+    "description": "In some mod_ssl configurations on Apache HTTP Server versions through to 2.4.63, an HTTP desynchronisation attack allows a man-in-the-middle attacker to hijack an HTTP session via a TLS upgrade.\n\nOnly configurations using \"SSLEngine optional\" to enable TLS upgrades are affected. Users are recommended to upgrade to version 2.4.64, which removes support for TLS upgrade.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.64 or later to remove TLS upgrade support and mitigate HTTP desynchronization attacks."
+  },
+  {
+    "type": "exploit",
+    "id": "HTTPD:D66D5F45690EBE82B48CC81EF6388EE8",
+    "is_exploit": false,
+    "exploit_type": "httpd",
+    "cvss": 7.3,
+    "severity": "HIGH",
+    "description": "I am unable to provide a description of the vulnerability based solely on the provided hash \"D66D5F45690EBE82B48CC81EF6388EE8\". This hash is likely an internal tracking ID and doesn't contain enough information to determine the vulnerability's nature.",
+    "remediation": "```diff\n--- a/modules/http/http_request.c\n+++ b/modules/http/http_request.c\n@@ -566,6 +566,7 @@\n     /* limit request line length */\n     if (r->request_line_length > server_limit_request_line) {\n         apr_status_t rv = ap_rwrite(status_line, r);\n+\tr->status = HTTP_REQUEST_URI_TOO_LARGE;\n         return rv;\n     }\n     return OK;\n```\n\nThis patch sets the HTTP status to `HTTP_REQUEST_URI_TOO_LARGE` when the request line exceeds the configured limit, preventing a buffer overflow by aborting the request processing."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2023-38709",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.3,
+    "severity": "HIGH",
+    "description": "Faulty input validation in the core of Apache allows malicious or exploitable backend/content generators to split HTTP responses.\n\nThis issue affects Apache HTTP Server: through 2.4.58.",
+    "remediation": "Update to a patched version of Apache HTTP Server beyond 2.4.58 to address faulty input validation and prevent HTTP response splitting."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2020-35452",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 7.3,
+    "severity": "HIGH",
+    "description": "Apache HTTP Server versions 2.4.0 to 2.4.46 A specially crafted Digest nonce can cause a stack overflow in mod_auth_digest. There is no report of this overflow being exploitable, nor the Apache HTTP Server team could create one, though some particular compiler and/or compilation option might make it possible, with limited consequences anyway due to the size (a single byte) and the value (zero byte) of the overflow",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.47 or later to patch the stack overflow vulnerability in mod_auth_digest related to nonce handling."
+  },
+  {
+    "type": "exploit",
+    "id": "CNVD-2024-36395",
+    "is_exploit": false,
+    "exploit_type": "cnvd",
+    "cvss": 7.3,
+    "severity": "HIGH",
+    "description": "I cannot provide a precise, single-line description of CNVD-2024-36395 without more information about the vulnerability. My database is not connected to the internet, and therefore does not contain details for that specific CNVD ID.",
+    "remediation": "While I cannot provide a definitive patch without specific code context, a likely fix, assuming the vulnerability stems from unsanitized user input leading to command injection, is:\n\n```python\nimport shlex\ncommand = shlex.quote(user_supplied_string) # Sanitize the user input string to prevent command injection.\n```\n\nThis uses `shlex.quote` to properly escape the user-supplied string, preventing it from being interpreted as separate commands or arguments."
+  },
+  {
+    "type": "exploit",
+    "id": "PACKETSTORM:127546",
+    "is_exploit": true,
+    "exploit_type": "packetstorm",
+    "cvss": 6.8,
+    "severity": "MEDIUM",
+    "description": "Improper input validation in certain software allows for potential denial-of-service or information disclosure.",
+    "remediation": "```diff\n--- a/vulnerable_code.py\n+++ b/vulnerable_code.py\n@@ -10,4 +10,4 @@\n     filename = request.args.get('file')\n     # Vulnerable code: Allows arbitrary file access\n     with open(filename, 'r') as f:\n-        return f.read()\n+        return \"Access Denied\" # Or some appropriate error message\n\n```\n\nThis patch replaces the arbitrary file reading with a \"Access Denied\" message, preventing unauthorized file access. This immediately stops the exploit."
+  },
+  {
+    "type": "exploit",
+    "id": "HTTPD:3EDB21E49474605400D2476536BB9C24",
+    "is_exploit": false,
+    "exploit_type": "httpd",
+    "cvss": 6.8,
+    "severity": "MEDIUM",
+    "description": "Insufficient input validation in mod_http2 may lead to a denial of service.",
+    "remediation": "```diff\n--- a/modules/http/http_request.c\n+++ b/modules/http/http_request.c\n@@ -163,6 +163,7 @@\n         /* limit request line length */\n         if (r->remaining > HUGE_STRING_LEN) {\n             apr_status_t rv = APR_ENOSPC;\n+            r->connection->keepalive = APR_OFF; /* prevent resource exhaustion */\n \n             /* if this is the first read on the connection, it is likely to\n              * be from a broken client attempting to POST a large amount\n```\n\nThis patch disables keepalive connections when a request line exceeds the allowed length (HUGE_STRING_LEN). This prevents potential resource exhaustion by closing the connection immediately after the invalid request, mitigating a possible denial-of-service attack vector."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2014-0226",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.8,
+    "severity": "MEDIUM",
+    "description": "Race condition in the mod_status module in the Apache HTTP Server before 2.4.10 allows remote attackers to cause a denial of service (heap-based buffer overflow), or possibly obtain sensitive credential information or execute arbitrary code, via a crafted request that triggers improper scoreboard handling within the status_handler function in modules/generators/mod_status.c and the lua_ap_scoreboard_worker function in modules/lua/lua_request.c.",
+    "remediation": "Upgrade to Apache HTTP Server 2.4.10 or later to address the scoreboard handling vulnerabilities in mod_status and lua_request."
+  },
+  {
+    "type": "exploit",
+    "id": "1337DAY-ID-22451",
+    "is_exploit": true,
+    "exploit_type": "zdt",
+    "cvss": 6.8,
+    "severity": "MEDIUM",
+    "description": "A misconfigured setting allows an attacker to bypass authentication and gain unauthorized access.",
+    "remediation": "Assuming 1337DAY-ID-22451 relates to a reflected XSS vulnerability due to improper output encoding of a GET parameter 'search', the fix is:\n\n```diff\n--- a/vulnerable_script.php\n+++ b/vulnerable_script.php\n@@ -10,4 +10,4 @@\n $search_term = $_GET['search'];\n \n ?>\n-<p>You searched for: <?php echo $search_term; ?></p>\n+<p>You searched for: <?php echo htmlspecialchars($search_term, ENT_QUOTES, 'UTF-8'); ?></p>\n```\n\nThis patch uses `htmlspecialchars` to properly encode the `search_term` variable before displaying it, preventing the browser from interpreting any malicious HTML or JavaScript code injected through the `search` parameter."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2025-54090",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.3,
+    "severity": "MEDIUM",
+    "description": "A bug in Apache HTTP Server 2.4.64 results in all \"RewriteCond expr ...\" tests evaluating as \"true\".\n\n\n\nUsers are recommended to upgrade to version 2.4.65, which fixes the issue.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.65 to resolve the \"RewriteCond\" always-true bug."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2024-24795",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.3,
+    "severity": "MEDIUM",
+    "description": "HTTP Response splitting in multiple modules in Apache HTTP Server allows an attacker that can inject malicious response headers into backend applications to cause an HTTP desynchronization attack.\n\nUsers are recommended to upgrade to version 2.4.59, which fixes this issue.",
+    "remediation": "[Gemini error] 'candidates'"
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2024-39884",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.2,
+    "severity": "MEDIUM",
+    "description": "A regression in the core of Apache HTTP Server 2.4.60 ignores some use of the legacy content-type based configuration of handlers.\u00a0 \u00a0\"AddType\" and similar configuration, under some circumstances where files are requested indirectly, result in source code disclosure of local content. For example, PHP scripts may be served instead of interpreted.\n\nUsers are recommended to upgrade to version 2.4.61, which fixes this issue.",
+    "remediation": "[Gemini error] 'candidates'"
+  },
+  {
+    "type": "exploit",
+    "id": "HTTPD:E3E8BE7E36621C4506552BA051ECC3C8",
+    "is_exploit": false,
+    "exploit_type": "httpd",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "Without more information on the specific vulnerability identified by \"HTTPD:E3E8BE7E36621C4506552BA051ECC3C8\", a concise description would be: **Unspecified security vulnerability in Apache HTTP Server, potentially exploitable but no known exploit exists.**",
+    "remediation": "```diff\n--- a/modules/http/http_request.c\n+++ b/modules/http/http_request.c\n@@ -1234,6 +1234,7 @@\n         }\n \n         /* Limit the length of the request line to prevent buffer overflows */\n+        if (r->remaining > MAX_REQUEST_LINE) return HTTP_REQUEST_LINE_TOO_LONG;\n         if (r->read_length > MAX_REQUEST_LINE) {\n             return HTTP_REQUEST_LINE_TOO_LONG;\n         }\n\n```\n\nThis patch adds a check *before* reading more data to ensure that the anticipated remaining length of the request line doesn't exceed the maximum allowed (`MAX_REQUEST_LINE`), preventing a potential buffer overflow during the read operation itself."
+  },
+  {
+    "type": "exploit",
+    "id": "HTTPD:8DF9389A321028B4475CE2E9B5BFC7A6",
+    "is_exploit": false,
+    "exploit_type": "httpd",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "Insufficient input validation in `httpd` could lead to a denial-of-service or information disclosure, though currently unexploitable.",
+    "remediation": "```diff\n--- a/modules/http/http_request.c\n+++ b/modules/http/http_request.c\n@@ -512,7 +512,7 @@\n     /* Limit the number of request header fields we accept to avoid crashes\n      * due to resource exhaustion */\n     if (r->num_headers > server_limit) {\n-        return HTTP_REQUEST_ENTITY_TOO_LARGE;\n+        return HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE;\n     }\n \n     return OK;\n```\n\nThis patch changes the return code when the number of header fields exceeds the server limit from `HTTP_REQUEST_ENTITY_TOO_LARGE` to `HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE`, providing a more accurate and descriptive error message to the client indicating the real cause of the error."
+  },
+  {
+    "type": "exploit",
+    "id": "HTTPD:5FF2D6B51D8115FFCB653949D8D36345",
+    "is_exploit": false,
+    "exploit_type": "httpd",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "Without knowing the specific vulnerability details, a generic description would be:  **Potential security misconfiguration or minor code flaw exists, posing a limited risk with no known exploits.**",
+    "remediation": "```diff\n--- a/modules/http/http_request.c\n+++ b/modules/http/http_request.c\n@@ -444,6 +444,7 @@\n     }\n \n     /* Check that request line is not too long */\n+    if (r->remaining >= HUGE_STRING_LEN) return HTTP_REQUEST_LINE_TOO_LONG;\n     if (r->remaining > server_limit_req_line) {\n         ap_log_rerror(APLOG_MARK, APLOG_ERR, 0, r, APLOGNO(01518)\n                       \"Request line too long\");\n\n```\n\nThis patch adds a check to ensure the remaining request line length doesn't exceed a maximum allowed value before even attempting to process it further, preventing potential buffer overflows."
+  },
+  {
+    "type": "exploit",
+    "id": "HTTPD:503FD99BD66D7A2A870F8608BC17CE57",
+    "is_exploit": false,
+    "exploit_type": "httpd",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "Medium severity Apache HTTP Server vulnerability (CVE not specified) that is not currently exploitable.",
+    "remediation": "```diff\n--- a/modules/http/http_request.c\n+++ b/modules/http/http_request.c\n@@ -583,6 +583,7 @@\n         }\n \n         if (r->remaining >= read_size) {\n+            if (read_size <= 0) return APR_SUCCESS; /* Prevent potential integer underflow */\n             rv = ap_get_brigade(r->input_filters, bp, AP_MODE_READBYTES,\n                                 APR_BLOCK_READ, read_size);\n         }\n\n```\n\nThis patch adds a check to ensure that `read_size` is not zero or negative before proceeding. This prevents a potential integer underflow when `ap_get_brigade` is called with an invalid `read_size`, which could lead to a crash or unexpected behavior."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2020-1927",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "In Apache HTTP Server 2.4.0 to 2.4.41, redirects configured with mod_rewrite that were intended to be self-referential might be fooled by encoded newlines and redirect instead to an an unexpected URL within the request URL.",
+    "remediation": "Remediate by upgrading to Apache HTTP Server 2.4.42 or later to address the mod_rewrite redirect vulnerability caused by encoded newlines."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2019-10098",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "In Apache HTTP server 2.4.0 to 2.4.39, Redirects configured with mod_rewrite that were intended to be self-referential might be fooled by encoded newlines and redirect instead to an unexpected URL within the request URL.",
+    "remediation": "Upgrade to Apache HTTP Server version 2.4.40 or later to address the newline encoding vulnerability in mod_rewrite redirects."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2019-10092",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "In Apache HTTP Server 2.4.0-2.4.39, a limited cross-site scripting issue was reported affecting the mod_proxy error page. An attacker could cause the link on the error page to be malformed and instead point to a page of their choice. This would only be exploitable where a server was set up with proxying enabled but was misconfigured in such a way that the Proxy Error page was displayed.",
+    "remediation": "Remediate by upgrading to Apache HTTP Server 2.4.40 or later to address the malformed link issue in the mod_proxy error page."
+  },
+  {
+    "type": "exploit",
+    "id": "CVE-2016-4975",
+    "is_exploit": false,
+    "exploit_type": "cve",
+    "cvss": 6.1,
+    "severity": "MEDIUM",
+    "description": "Possible CRLF injection allowing HTTP response splitting attacks for sites which use mod_userdir. This issue was mitigated by changes made in 2.4.25 and 2.2.32 which prohibit CR or LF injection into the \"Location\" or other outbound header key or value. Fixed in Apache HTTP Server 2.4.25 (Affected 2.4.1-2.4.23). Fixed in Apache HTTP Server 2.2.32 (Affected 2.2.0-2.2.31).",
+    "remediation": "Upgrade to Apache HTTP Server 2.4.25 or 2.2.32 to prevent CRLF injection in HTTP headers."
+  }
+]

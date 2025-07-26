@@ -1,0 +1,105 @@
+{
+  "severity": {
+    "Critical": 140,
+    "High": 166,
+    "Medium": 77,
+    "Low": 0,
+    "Unknown": 4
+  },
+  "priority": {
+    "Critical": 99,
+    "High": 99,
+    "Medium": 15,
+    "Low": 174,
+    "Unknown": 0
+  },
+  "top_vulnerabilities": [
+    {
+      "id": "C94CBDE1-4CC5-5C06-9D18-23CAB216705E",
+      "count": 1
+    },
+    {
+      "id": "95499236-C9FE-56A6-9D7D-E943A24B633A",
+      "count": 1
+    },
+    {
+      "id": "CVE-2024-38476",
+      "count": 1
+    },
+    {
+      "id": "CVE-2024-38474",
+      "count": 1
+    },
+    {
+      "id": "CVE-2023-25690",
+      "count": 1
+    }
+  ],
+  "top_os": [
+    {
+      "os": "Unknown",
+      "count": 387
+    }
+  ],
+  "top_agents": [
+    {
+      "agent": "Unknown",
+      "count": 387
+    }
+  ],
+  "top_packages": [
+    {
+      "package": "Unknown",
+      "count": 387
+    }
+  ],
+  "common_scores": [
+    {
+      "score": 7.5,
+      "count": 150
+    },
+    {
+      "score": 9.8,
+      "count": 106
+    },
+    {
+      "score": 5.0,
+      "count": 23
+    },
+    {
+      "score": 5.3,
+      "count": 19
+    },
+    {
+      "score": 9.1,
+      "count": 17
+    },
+    {
+      "score": 9.0,
+      "count": 14
+    },
+    {
+      "score": 4.3,
+      "count": 13
+    },
+    {
+      "score": 6.1,
+      "count": 9
+    },
+    {
+      "score": 8.1,
+      "count": 7
+    },
+    {
+      "score": 7.3,
+      "count": 4
+    }
+  ],
+  "os_families": [
+    {
+      "os_family": "unknown",
+      "count": 387
+    }
+  ],
+  "by_year": []
+}

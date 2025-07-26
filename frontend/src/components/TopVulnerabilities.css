@@ -1,0 +1,36 @@
+.table-section {
+  padding: 16px;
+}
+
+.table-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table thead {
+  background-color: #f3f4f6;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 12px 24px;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #111827;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}

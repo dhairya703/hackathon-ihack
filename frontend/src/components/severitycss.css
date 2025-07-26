@@ -1,0 +1,121 @@
+.critical-exploits {
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Top bar (Title + Buttons) */
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* space between title and buttons */
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  flex-wrap: wrap;
+}
+
+.top-bar h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.top-bar button {
+  margin-left: 10px;
+}
+.dashboard-title {
+      text-align: center;
+  flex: 1;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+.toggle-btn,
+.start-scan-btn {
+  background-color: #1a73e8;
+  color: #ffffff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-scan-btn:hover {
+  background-color: #0c57b0;
+}
+
+/* Filter controls aligned right */
+.filter-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.filter-controls input {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  width: 300px;
+}
+
+.filter-controls select {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background-color: #f3f4f6;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+thead th {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr {
+  transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+tbody td {
+  padding: 12px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+button.mark-active {
+  color: #2563eb;
+  cursor: pointer;
+}

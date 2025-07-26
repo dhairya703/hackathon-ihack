@@ -1,0 +1,25 @@
+.table-wrapper {
+  background: white;
+  padding: 0px;
+  margin: 0px 0;
+  /* border-radius: 8px; */
+  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); */
+}
+
+.table-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}

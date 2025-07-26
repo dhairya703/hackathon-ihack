@@ -1,0 +1,17 @@
+{
+    "by_type": {},
+    "by_severity": {
+        "Critical": [],
+        "High": [],
+        "Medium": [],
+        "Low": [],
+        "Unknown": []
+    },
+    "by_priority": {
+        "Critical": [],
+        "High": [],
+        "Medium": [],
+        "Low": [],
+        "Unknown": []
+    }
+}

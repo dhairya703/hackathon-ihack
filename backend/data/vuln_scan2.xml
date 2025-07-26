@@ -1,0 +1,3 @@
+<nmaprun><runstats><finished time="1753533451" timestr="Sat Jul 26 18:07:31 2025" summary="Nmap done at Sat Jul 26 18:07:31 2025; 0 IP addresses (0 hosts up) scanned in 0.04 seconds" elapsed="0.04" exit="error" errormsg="Found no matches for the service mask &apos;null&apos; and your specified protocols"/><hosts up="0" down="0" total="0"/>
+</runstats>
+</nmaprun>

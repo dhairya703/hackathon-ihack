@@ -1,0 +1,20 @@
+# Frontend (React)
+frontend/node_modules/
+frontend/build/
+
+# Backend (FastAPI)
+backend/__pycache__/
+backend/venv/
+backend/.env
+
+# Python
+*.py[cod]
+__pycache__/
+
+# General
+*.env
+*.env.*
+
+# OS-specific
+.DS_Store
+Thumbs.db

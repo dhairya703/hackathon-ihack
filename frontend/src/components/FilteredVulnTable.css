@@ -1,0 +1,32 @@
+.vuln-table-container {
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filters input[type="text"],
+.filters select {
+  padding: 5px;
+}
+
+.vuln-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vuln-table th,
+.vuln-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.vuln-table th {
+  background-color: #f0f0f0;
+}

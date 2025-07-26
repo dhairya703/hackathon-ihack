@@ -1,0 +1,21 @@
+[
+    {
+        "id": "95499236-C9FE-56A6-9D7D-E943A24B633A",
+        "is_exploit": "true",
+        "type": "githubexploit",
+        "cvss": "10.0"
+    },
+    {
+        "id": "CVE-2024-47252",
+        "is_exploit": "false",
+        "type": "cve",
+        "cvss": "7.5"
+    }, {
+        "cvss": "5.0",
+        "type": "httpd",
+        "is_exploit": "false",
+        "id": "HTTPD:A158A6C24B676357DB136BEF8DE76E9B"
+    }
+    
+
+]
