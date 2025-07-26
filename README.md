@@ -47,8 +47,10 @@ pip install -r requirements.txt
 # Run the FastAPI server
 uvicorn main:app --reload
 
-The backend will be running at http://localhost:8000
+The backend will be running at http://localhost:8000 ```
 
+### 🖥️ Frontend (FastAPI)
+```bash
 # Navigate to the frontend directory
 cd frontend
 
@@ -58,7 +60,7 @@ npm install jspdf
 
 # Start the development server
 npm run dev
-The frontend will be running at http://localhost:5173
+The frontend will be running at http://localhost:5173 ```
 
 | Method   | Endpoint                      | Description                           |
 | -------- | ----------------------------- | ------------------------------------- |
