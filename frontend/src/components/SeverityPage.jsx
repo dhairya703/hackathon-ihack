@@ -47,7 +47,7 @@ export default function SeverityPage() {
   }, [level]);
 
   useEffect(() => {
-    fetch("/result.json")
+    fetch("http://localhost:8000/analyze/result1")
       .then((res) => res.json())
       .then(async (json) => {
         const filteredBySeverity = json.filter(
